@@ -2,18 +2,27 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css'
 import NavbarComponent from './components/NavbarComponent'
-import Header from './components/Header'
+import LandingPage from './pages/LandingPage.jsx'
+import CartPage from './pages/CartPage.jsx'
+import NotFoundPage from './pages/NotFoundPage.jsx'
 import Container from 'react-bootstrap/Container'
+import { BrowserRouter, Routes, Route } from "react-router";
 
 
 function App() {
   return (
-    <>
-    <NavbarComponent />
-    <Container className='text-center mt-5 mb-3'>
-       <Header />
-    </Container>
-    </>
+    <BrowserRouter>
+      <NavbarComponent />
+
+      <Container className='text-center mt-5 mb-3'>    
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/cart" element={<CartPage />} />
+          <Route path="/*" element={<NotFoundPage />} />
+        </Routes>
+
+      </Container>
+    </BrowserRouter>
   )
 }
 
