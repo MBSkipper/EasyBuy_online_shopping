@@ -14,7 +14,7 @@ function Header() {
             </h1>
             <p className="lead fs-2 mt-4">Get the best deals online</p>
             <p className="fs-5">
-                Built with React
+              
             </p>
 
         </div>

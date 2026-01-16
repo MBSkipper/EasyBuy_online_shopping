@@ -14,7 +14,7 @@ function App() {
     <BrowserRouter>
       <NavbarComponent />
 
-      <Container className='text-center mt-5 mb-3'>    
+      <Container className='text-center my-5'>    
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/cart" element={<CartPage />} />
