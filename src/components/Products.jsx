@@ -5,7 +5,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 
-function Products(props) {
+function Products({ cart, addToCart }) {
     const [products, setProducts] = useState([ ])
     const [filteredProducts, setFilteredProducts] = useState([ ])
     const [categories, setCategories] = useState([ ])
@@ -47,7 +47,8 @@ function Products(props) {
 
     return (
         <>
-            <div className='d-flex justify-content-end'>
+            <div className='d-flex justify-content-end align-items-center'>
+                <label>Categories</label>
                 <Form.Select 
                     value= {category}
                     onChange={(e) => setCategory(e.target.value)}
@@ -73,7 +74,16 @@ function Products(props) {
                                     <Card.Text>
                                     £{product.price}
                                     </Card.Text>
-                                    <Button variant="warning" className="me-1">Add to cart</Button>
+                                    <Button 
+                                        variant="warning" 
+                                        className="me-1"
+                                        onClick={() => addToCart(product.id)}
+                                        >
+                                        { cart.includes(product.id) ? 
+                                        'Added to cart': 
+                                        'Add to cart'
+                                        }
+                                    </Button>
                                     <Button variant="info" className="me-1">Checkout</Button>
                                 </Card.Body>
                         </Card>

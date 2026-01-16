@@ -7,16 +7,31 @@ import CartPage from './pages/CartPage.jsx'
 import NotFoundPage from './pages/NotFoundPage.jsx'
 import Container from 'react-bootstrap/Container'
 import { BrowserRouter, Routes, Route } from "react-router";
+import { useState } from 'react';
 
 
 function App() {
+  const [cart,setCart] = useState([ ])
+
+  function addToCart(productId) {
+    setCart([...cart, productId])
+  }
+  {/*In the function addToCart above, the Cart cannot be updated directly, only by the handler so using the ...spread operator copies the existing contents of the Cart (array) and then adds the product id of the additional product selected */}
+
   return (
     <BrowserRouter>
-      <NavbarComponent />
+      <NavbarComponent cart={cart} />
 
       <Container className='text-center my-5'>    
         <Routes>
-          <Route path="/" element={<LandingPage />} />
+          <Route 
+            path="/" 
+            element={
+              <LandingPage 
+              cart={cart}
+              addToCart={addToCart} 
+              />} 
+            />
           <Route path="/cart" element={<CartPage />} />
           <Route path="/*" element={<NotFoundPage />} />
         </Routes>

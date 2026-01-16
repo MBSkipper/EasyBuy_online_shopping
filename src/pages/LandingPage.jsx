@@ -1,12 +1,15 @@
 import Header from '../components/Header.jsx';
 import Products from '../components/Products.jsx';
 
-function LandingPage(props) {
+function LandingPage({ cart, addToCart }) {
     return (
         <div>
             <Header />
             <hr/>
-            <Products />
+            <Products 
+                cart={cart} 
+                addToCart={addToCart} 
+            />
         </div>
 
     );

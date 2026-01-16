@@ -2,11 +2,12 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import Badge from 'react-bootstrap/Badge'
 import logo from '../assets/logo.png'
 
 //Refer to notes at bottom of page
 
-function NavbarComponent() {
+function NavbarComponent({ cart }) {
   return (
     <Navbar collapseOnSelect expand="lg" className="bg-body-tertiary">
       <Container>
@@ -27,7 +28,10 @@ function NavbarComponent() {
             <Nav.Link href="#pricing">Best Sellers</Nav.Link>           
           </Nav>
           <Nav>
-            <Nav.Link href="#cart">Cart</Nav.Link>
+            <Nav.Link href="#cart">
+              Cart{' '}
+               <Badge pill bg="dark">{cart.length}</Badge>
+            </Nav.Link>
             <NavDropdown title="My Account" id="collapsible-nav-dropdown">
               <NavDropdown.Item href="#account-details">Account details</NavDropdown.Item>
               <NavDropdown.Item href="#my-orders">
