@@ -1,4 +1,8 @@
-function CartPage() {
+import { useState, useEffect } from 'react'
+
+function CartPage({ cart }) {
+    const [products, setProducts] = useState([ ])
+
     return (
         <div>
            <h2>Cart</h2>

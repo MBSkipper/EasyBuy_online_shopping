@@ -4,6 +4,7 @@ import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
+import { Link } from 'react-router';
 
 function Products({ cart, addToCart }) {
     const [products, setProducts] = useState([ ])
@@ -83,8 +84,13 @@ function Products({ cart, addToCart }) {
                                         'Added to cart': 
                                         'Add to cart'
                                         }
-                                    </Button>
-                                    <Button variant="info" className="me-1">Checkout</Button>
+                                    </Button> 
+                                    <Link 
+                                    to='/cart'
+                                    className="btn btn-info" 
+                                    >Checkout
+                                    </Link>
+                                    {/*Note above- this link is required to use router for cart page and Link is styled as a button */}
                                 </Card.Body>
                         </Card>
                     </Col>
@@ -99,26 +105,3 @@ function Products({ cart, addToCart }) {
 export default Products;
 
 
-{/** NOTES
-Categories of items 
-found by code on line starting const categories ... followed by console.log(categories).  Review in console and pasted below
-
-async function fetchProducts() {
-        try {
-            const res = await fetch('https://dummyjson.com/products')
-            const data = await res.json()
-            setProducts(data.products)
-
-            const categories = data.products.map(p => p.category)
-            console.log(categories)
-        } catch (error) {
-            console.log(error)
-        }
-    }
-
-
-    
-    Categories
-    (30) ['beauty', 'beauty', 'beauty', 'beauty', 'beauty', 'fragrances', 'fragrances', 'fragrances', 'fragrances', 'fragrances', 'furniture', 'furniture', 'furniture', 'furniture', 'furniture', 'groceries', 'groceries', 'groceries', 'groceries', 'groceries', 'groceries', 'groceries', 'groceries', 'groceries', 'groceries', 'groceries', 'groceries', 'groceries', 'groceries', 'groceries']
-    
-    */}
