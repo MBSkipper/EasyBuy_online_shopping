@@ -32,7 +32,7 @@ function App() {
               addToCart={addToCart} 
               />} 
             />
-          <Route path="/cart" element={<CartPage />} />
+          <Route path="/cart" element={<CartPage cart={cart} />} />
           <Route path="/*" element={<NotFoundPage />} />
         </Routes>
 
